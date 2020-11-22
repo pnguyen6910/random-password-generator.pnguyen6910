@@ -25,7 +25,21 @@
           ></textarea>
         </div>
         <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+          <form class="form">
+          <label for="characterAmountNumber">Number Of Characters</label>
+          <input type="range" name="numOfCharactersslider" id="slider" min="8" max="128" value="8">
+          <input type="number" name="numberOfCharacters" id="numInput" min="8" max="128" value="8">
+
+          <lable for="uppercase">Uppercase</lable>
+          <input type="checkbox" id="includeUppercase" class="float">
+
+          <lable for="numbers">Numbers</lable>
+          <input type="checkbox" id="includeNumbers" class="float">
+
+          <lable for="specialCharacters">Special Characters</lable>
+          <input type="checkbox" id="includeSpecialCharacters" class="float">
+          <button type="submit" id="submit" class="btn">Generate Password</button>
+        </form>
         </div>
       </div>
     </div>
