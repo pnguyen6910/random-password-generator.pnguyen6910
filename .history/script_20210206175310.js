@@ -18,6 +18,5 @@ writePassword => {
     const includeCap = prompt("What is the name of your first pet? (ALL CAPS)")
     const includeSpecialchars = prompt("Please enter a special character.")
     const numIncluded = prompt("Please enter some numbers.")
-    
   }
 }
