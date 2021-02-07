@@ -30,25 +30,8 @@ generatePassword => {
     const cancel = comfirm("Would you like to cancel?")
     if (cancel === false) {
       return
-    }else {
+    }
+  }else {
     generatePassword()
-    }
-  } else if (firstPrompt < 8 || firstPrompt > 128) {
-    alert("You must pick a number between 8 and 128")
-    const cancel = confirm("Would you like to cancel?")
-    if (cancel === false) {
-      return
-    } else {
-    generatePassword()
-    }
-  } else {
-    askCap => {
-      const askCapP = prompt("Would you like to add caplitolized letters to the password? Y/N")
-      upperQ = askCapP.toLocaleLowerCase()
-      if (askCapP != "y" && askCapP != "n") {
-        alert("Please enter Y or N")
-        askCapP
-      }
-    }
   }
 }
