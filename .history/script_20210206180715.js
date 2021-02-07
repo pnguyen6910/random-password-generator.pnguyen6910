@@ -42,4 +42,4 @@ reset => {
   password.value = ""
 }
 
-generate.addEventListener("click", writePassword())
+generate.addEventListener("click", writePassword)

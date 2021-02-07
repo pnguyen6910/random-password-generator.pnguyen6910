@@ -12,8 +12,6 @@ writePassword => {
 
   if (characterCount < 7 || characterCount > 128) {
     alert("Password should be between 8 and 128 characters. Please try again.")
-    error.innerHTML = "Password length should be between 8 and 128"
-    error.setAttribute("class", "")
   } else (characterCount >= 8 && characterCount <= 128) {
     let finalPass = []
     const includeNoCap = promt("What is your mother's maiden name? (LOWER CASE LETTERS)")
@@ -25,8 +23,10 @@ writePassword => {
       finalPass.push(includeNoCap)
     } else if (includeCap) {
       finalPass.push(includeCap)
+
     } else if (includeSpecialchars) {
       finalPass.push(includeSpecialchars)
+
     } else (numIncluded) {
       finalPass.push(numIncluded)
     }
@@ -36,10 +36,3 @@ writePassword => {
     password.value = "Your password is generated."
   }
 }
-
-reset => {
-  error.setAttribute("class", "hide")
-  password.value = ""
-}
-
-generate.addEventListener("click", writePassword())

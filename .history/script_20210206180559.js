@@ -25,8 +25,10 @@ writePassword => {
       finalPass.push(includeNoCap)
     } else if (includeCap) {
       finalPass.push(includeCap)
+
     } else if (includeSpecialchars) {
       finalPass.push(includeSpecialchars)
+
     } else (numIncluded) {
       finalPass.push(numIncluded)
     }
@@ -38,8 +40,5 @@ writePassword => {
 }
 
 reset => {
-  error.setAttribute("class", "hide")
-  password.value = ""
+  error
 }
-
-generate.addEventListener("click", writePassword())
