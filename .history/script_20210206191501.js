@@ -2,7 +2,13 @@ const cap = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N
 const noCap = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 const specialCharacters = ["!","@","#","$","^","&","%","*","(",")","+","=","-","[","]","{","}","|",":","<",">","?",",",".",",",";"]
 const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-var donePass = []
+
+const upperQ
+const lowerQ
+const numQ
+const specialQ
+const userA
+const donePass 
 
 const generateBtn = document.querySelector("#generate")
 
@@ -37,41 +43,36 @@ generatePassword => {
     }
   } else {
     askCap => {
-      const askCapP = prompt("Would you like to add capitalized letters to the password? Y/N")
+      const askCapP = prompt("Would you like to add capitalize letters to the password? Y/N")
       upperQ = askCapP.toLocaleLowerCase()
       if (askCapP != "y" && askCapP != "n") {
         alert("Please enter Y or N")
-        askCap()
+        askCapP()
       }
     }
     askNoCap => {
-      const askNoCapP = prompt("Would you like to add lowercase letters to the password? Y/N")
-      upperQ = askNoCapP.toLocaleLowerCase()
-      if (askNoCapP != "y" && askNoCapP != "n") {
+      const askCapP = prompt("Would you like to add capitalize letters to the password? Y/N")
+      upperQ = askCapP.toLocaleLowerCase()
+      if (askCapP != "y" && askCapP != "n") {
         alert("Please enter Y or N")
-        askNoCap()
+        askCapP()
       }
     }
     askNum => {
-      const askNumP = prompt("Would you like to add numbers to the password? Y/N")
-      upperQ = askNumP.toLocaleLowerCase()
-      if (askNumP != "y" && askNumP != "n") {
+      const askCapP = prompt("Would you like to add capitalize letters to the password? Y/N")
+      upperQ = askCapP.toLocaleLowerCase()
+      if (askCapP != "y" && askCapP != "n") {
         alert("Please enter Y or N")
-        askNum()
+        askCapP()
       }
     }
     askSpecial => {
-      const askSpeP = prompt("Would you like to add special characters to the password? Y/N")
-      upperQ = askSpeP.toLocaleLowerCase()
-      if (askSpeP != "y" && askSpeP != "n") {
+      const askCapP = prompt("Would you like to add capitalize letters to the password? Y/N")
+      upperQ = askCapP.toLocaleLowerCase()
+      if (askCapP != "y" && askCapP != "n") {
         alert("Please enter Y or N")
-        askSpecial()
+        askCapP()
       }
     }
-    askCap()
-    askNoCap()
-    askNum()
-    askSpecial()
   }
-
 }
