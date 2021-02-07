@@ -10,9 +10,6 @@ const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 generate.addEventListener("click", writePassword())
 
-generatePassword => {
-  const donePassword = writePassword()
-}
 
 function writePassword() {
   const characterCount = parseInt(prompt("How many characters would you like in your password? (8 - 128)"))
