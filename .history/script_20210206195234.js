@@ -125,17 +125,4 @@ generatePassword => {
   else if (askCap === "n" && askNoCap === "n" && askNum === "n" && askSpecial === "y"){
     userA = specialCharacters
   }
-
-  for (var i = 0; i < firstPrompt; i++) {
-    const rng = userA[Math.floor(Math.random() * userA.length)]
-    donePass.push(rng)
-  }
-
-  var newPass = donePass.join("")
-  answerBox(newPass)
-  return newPass
-}
-
-answerBox => {
-  document.getElementById("password").textContent = newPass
 }
