@@ -19,20 +19,6 @@ writePassword => {
     const includeSpecialchars = prompt("Please enter a special character.")
     const numIncluded = prompt("Please enter some numbers.")
 
-    if (includeNoCap) {
-      finalPass.push(includeNoCap)
-    } else if (includeCap) {
-      finalPass.push(includeCap)
 
-    } else if (includeSpecialchars) {
-      finalPass.push(includeSpecialchars)
-
-    } else (numIncluded) {
-      finalPass.push(numIncluded)
-    }
-
-    console.log(finalPass)
-
-    password.value = "Your password is generated"
   }
 }
