@@ -23,7 +23,7 @@ function charSelection() {
   const incNum = confirm("Would you like NUMBERS in your password?")
   const incSymbols = confirm("Would you like SPECIAL characters in your password?")
 
-  if (includeLowerC === false && includeUpperC === false && includenumber === false && includesymbols === false) {
+  if (incNoCap === false && incCap === false && incNum === false && incSymbols === false) {
     alert('You need to pick atleast one criteria \n Please try again')
     return;
   }
