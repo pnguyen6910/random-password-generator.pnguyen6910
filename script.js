@@ -45,21 +45,21 @@ function randomiser() {
 
 function arrayPush(finalChars) {
   var allTheArrays = []
-  if (finalChars.includeLowerC === true) {
-    for (var i = 0; i < lowerCaseChar.length; i++)
-      allTheArrays.push(lowerCaseChar[i])
+  if (finalChars.incNoCap === true) {
+    for (var i = 0; i < noCap.length; i++)
+      allTheArrays.push(noCap[i])
   }
-  if (finalChars.includeUpperC === true) {
-    for (var i = 0; i < upperCaseChar.length; i++)
-      allTheArrays.push(upperCaseChar[i])
+  if (finalChars.incCap === true) {
+    for (var i = 0; i < cap.length; i++)
+      allTheArrays.push(cap[i])
   }
-  if (finalChars.includenumber === true) {
-    for (var i = 0; i < numericNumber.length; i++)
-      allTheArrays.push(numericNumber[i])
+  if (finalChars.incNum === true) {
+    for (var i = 0; i < num.length; i++)
+      allTheArrays.push(num[i])
   }
-  if (finalChars.includesymbols === true) {
-    for (var i = 0; i < specialChar.length; i++)
-      allTheArrays.push(specialChar[i])
+  if (finalChars.incSymbols === true) {
+    for (var i = 0; i < specialCharacters.length; i++)
+      allTheArrays.push(specialCharacters[i])
   }
   finalArray = allTheArrays;
 }
