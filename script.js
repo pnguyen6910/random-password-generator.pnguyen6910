@@ -1,141 +1,85 @@
 const cap = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 const noCap = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-const specialCharacters = ["!","@","#","$","^","&","%","*","(",")","+","=","-","[","]","{","}","|",":","<",">","?",",",".",",",";"]
+const specialCharacters = ["!", "@", "#", "$", "^", "&", "%", "*", "(", ")", "+", "=", "-", "[", "]", "{", "}", "|", ":", "<", ">", "?", ",", ".", ",", ";"]
 const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+var passLength
+
 var donePass = []
 
-const generateBtn = document.querySelector("#generate")
-
-
-writePassword => {
-  const password = generatePassword()
-  const passText = document.querySelector("Your Secure Password")
-
-  passText.value = password
+function pwLength() {
+  const charCount = parseInt(prompt("Please enter a number 8 - 128"))
+  if (isNaN(charCount) === true) {
+    alert("Please input a number")
+  }
+  if (charCount <= 7 || charCount > 128) {
+    charCount = parseInt(prompt("please enter a number 8 - 128"))
+  }
+  passLength = charCount
 }
 
-generateBtn.addEventListener("click", writePassword())
+function charSelection() {
+  const incNoCap = confirm("Would you like LOWERCASE characters in your password?")
+  const incCap = confirm("Would you like UPPERCASE characters in your password?")
+  const incNum = confirm("Would you like NUMBERS in your password?")
+  const incSymbols = confirm("Would you like SPECIAL characters in your password?")
 
-generatePassword => {
-  const firstPrompt = parseInt(prompt("Please select a number between 8 and 128"))
-
-  if (!firstPrompt) {
-    alert("You must pick a number between 8 and 128")
-    const cancel = comfirm("Would you like to cancel?")
-    if (cancel === false) {
-      return
-    }else {
-    generatePassword()
-    }
-  } else if (firstPrompt < 8 || firstPrompt > 128) {
-    alert("You must pick a number between 8 and 128")
-    const cancel = confirm("Would you like to cancel?")
-    if (cancel === false) {
-      return
-    } else {
-    generatePassword()
-    }
-  } else {
-    askCap => {
-      const askCapP = prompt("Would you like to add capitalized letters to the password? Y/N")
-      upperQ = askCapP.toLocaleLowerCase()
-      if (askCapP != "y" && askCapP != "n") {
-        alert("Please enter Y or N")
-        askCap()
-      }
-    }
-    askNoCap => {
-      const askNoCapP = prompt("Would you like to add lowercase letters to the password? Y/N")
-      upperQ = askNoCapP.toLocaleLowerCase()
-      if (askNoCapP != "y" && askNoCapP != "n") {
-        alert("Please enter Y or N")
-        askNoCap()
-      }
-    }
-    askNum => {
-      const askNumP = prompt("Would you like to add numbers to the password? Y/N")
-      upperQ = askNumP.toLocaleLowerCase()
-      if (askNumP != "y" && askNumP != "n") {
-        alert("Please enter Y or N")
-        askNum()
-      }
-    }
-    askSpecial => {
-      const askSpeP = prompt("Would you like to add special characters to the password? Y/N")
-      upperQ = askSpeP.toLocaleLowerCase()
-      if (askSpeP != "y" && askSpeP != "n") {
-        alert("Please enter Y or N")
-        askSpecial()
-      }
-    }
-    askCap()
-    askNoCap()
-    askNum()
-    askSpecial()
-  }
-  if (askCap === "n" && askNoCap === "n" && askNum === "n" && askSpecial === "n") {
-    alert("You must select Y for at least one of the criteria.")
-    generatePassword()
-  } 
-  else if (askCap === "y" && askNoCap === "y" && askNum === "y" && askSpecial === "y"){
-    userA = noCap.concat(cap, num, specialCharacters)
-  } 
-  else if (askCap === "n" && askNoCap === "y" && askNum === "y" && askSpecial === "y"){
-    userA = noCap.concat(num, specialCharacters)
-  } 
-  else if (askCap === "y" && askNoCap === "n" && askNum === "y" && askSpecial === "y"){
-    userA = Cap.concat(num, specialCharacters)
-  } 
-  else if (askCap === "y" && askNoCap === "y" && askNum === "n" && askSpecial === "y"){
-    userA = noCap.concat(cap, specialCharacters)
-  } 
-  else if (askCap === "y" && askNoCap === "y" && askNum === "y" && askSpecial === "n"){
-    userA = noCap.concat(cap, num)
-  } 
-  else if (askCap === "n" && askNoCap === "n" && askNum === "y" && askSpecial === "y"){
-    userA = num.concat(specialCharacters)
-  } 
-  else if (askCap === "n" && askNoCap === "y" && askNum === "n" && askSpecial === "y"){
-    userA = Cap.concat(specialCharacters)
-  } 
-  else if (askCap === "n" && askNoCap === "y" && askNum === "y" && askSpecial === "n"){
-    userA = noCap.concat(num, specialCharacters)
-  } 
-  else if (askCap === "y" && askNoCap === "n" && askNum === "n" && askSpecial === "y"){
-    userA = Cap.concat(specialCharacters)
-  } 
-  else if (askCap === "y" && askNoCap === "n" && askNum === "y" && askSpecial === "y"){
-    userA = Cap.concat(num, specialCharacters)
-  } 
-  else if (askCap === "y" && askNoCap === "n" && askNum === "y" && askSpecial === "n"){
-    userA = Cap.concat(num)
-  } 
-  else if (askCap === "y" && askNoCap === "y" && askNum === "n" && askSpecial === "y"){
-    userA = Cap.concat(noCap, specialCharacters)
-  } 
-  else if (askCap === "y" && askNoCap === "n" && askNum === "n" && askSpecial === "n"){
-    userA = cap
-  } 
-  else if (askCap === "n" && askNoCap === "y" && askNum === "n" && askSpecial === "n"){
-    userA = noCap
-  } 
-  else if (askCap === "n" && askNoCap === "n" && askNum === "y" && askSpecial === "n"){
-    userA = num
-  } 
-  else if (askCap === "n" && askNoCap === "n" && askNum === "n" && askSpecial === "y"){
-    userA = specialCharacters
+  if (includeLowerC === false && includeUpperC === false && includenumber === false && includesymbols === false) {
+    alert('You need to pick atleast one criteria \n Please try again')
+    return;
   }
 
-  for (var i = 0; i < firstPrompt; i++) {
-    const rng = userA[Math.floor(Math.random() * userA.length)]
-    donePass.push(rng)
+  var finalChars = {
+    incCap: incCap,
+    incNoCap: incNoCap,
+    incNum: incNum,
+    incSymbols: incSymbols
   }
-
-  var newPass = donePass.join("")
-  answerBox(newPass)
-  return newPass
+  return finalChars
 }
 
-answerBox => {
-  document.getElementById("password").textContent = newPass
+function randomiser() {
+  const rng = Math.floor(Math.random() * donePass.length)
+  const randomChar = donePass[rng]
+  return randomChar
 }
+
+function arrayPush(finalChars) {
+  var allTheArrays = []
+  if (finalChars.includeLowerC === true) {
+    for (var i = 0; i < lowerCaseChar.length; i++)
+      allTheArrays.push(lowerCaseChar[i])
+  }
+  if (finalChars.includeUpperC === true) {
+    for (var i = 0; i < upperCaseChar.length; i++)
+      allTheArrays.push(upperCaseChar[i])
+  }
+  if (finalChars.includenumber === true) {
+    for (var i = 0; i < numericNumber.length; i++)
+      allTheArrays.push(numericNumber[i])
+  }
+  if (finalChars.includesymbols === true) {
+    for (var i = 0; i < specialChar.length; i++)
+      allTheArrays.push(specialChar[i])
+  }
+  finalArray = allTheArrays;
+}
+
+function getPass() {
+  var finalPass = ""
+  for (var i = 0; i < passLength; i++) {
+    finalPass += randomiser(donePass)
+  }
+  return finalPass
+}
+
+var generateBtn = document.querySelector("#generate")
+
+function writePass() {
+  pwLength()
+  arrayPush(charSelection())
+  var password = getPass()
+  var passText = document.querySelector("#password")
+  passText.innerText = password
+}
+
+generateBtn.addEventListener("click", writePass)
